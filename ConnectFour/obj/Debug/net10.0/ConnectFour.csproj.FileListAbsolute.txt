@@ -12,3 +12,4 @@ C:\Users\joemi\GitHub\ConnectFour\ConnectFour\ConnectFour\obj\Debug\net10.0\refi
 C:\Users\joemi\GitHub\ConnectFour\ConnectFour\ConnectFour\obj\Debug\net10.0\ConnectFour.pdb
 C:\Users\joemi\GitHub\ConnectFour\ConnectFour\ConnectFour\obj\Debug\net10.0\ConnectFour.genruntimeconfig.cache
 C:\Users\joemi\GitHub\ConnectFour\ConnectFour\ConnectFour\obj\Debug\net10.0\ref\ConnectFour.dll
+C:\Users\joemi\GitHub\ConnectFour\ConnectFour\ConnectFour\obj\Debug\net10.0\ConnectFour.sourcelink.json
