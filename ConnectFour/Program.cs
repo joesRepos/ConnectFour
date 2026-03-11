@@ -28,3 +28,8 @@ static void PrintBoard(char[,] board)
 char[,] board = new char[6,7];
 InitialiseBoard(board);
 PrintBoard(board);
+
+Console.Write("Choose a column (1-7): ");
+int column = int.Parse(Console.ReadLine());
+
+column--;
