@@ -24,6 +24,20 @@ static void PrintBoard(char[,] board)
     Console.WriteLine("1 2 3 4 5 6 7");
 }
 
+static bool DropPiece(char[,] board, int column, char player)
+{
+    for (int r = 5; r >= 0; r--)
+    {
+        if (board[r, column] == '.')
+        {
+            board[r, column] = player;
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 char[,] board = new char[6,7];
 InitialiseBoard(board);
@@ -33,3 +47,5 @@ Console.Write("Choose a column (1-7): ");
 int column = int.Parse(Console.ReadLine());
 
 column--;
+
+DropPiece(board, column, 'X');
