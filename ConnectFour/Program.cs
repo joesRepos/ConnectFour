@@ -41,11 +41,22 @@ static bool DropPiece(char[,] board, int column, char player)
 
 char[,] board = new char[6,7];
 InitialiseBoard(board);
-PrintBoard(board);
 
-Console.Write("Choose a column (1-7): ");
-int column = int.Parse(Console.ReadLine());
+char currentPlayer = 'X';
 
-column--;
+while (true)
+{
+    PrintBoard(board);
 
-DropPiece(board, column, 'X');
+    Console.Write("Player {currentPlayer}, choose column (1-7): ");
+    int column = int.Parse(Console.ReadLine()) - 1;
+
+    if (DropPiece(board, column, currentPlayer))
+    {
+        currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+    }
+    else
+    {
+        Console.WriteLine("Column full.");
+    }
+}
