@@ -52,6 +52,17 @@ static bool CheckWin(char[,] board, char player)
     return false;
 }
 
+static bool CheckDraw(char[,] board)
+{
+    for (int c = 0; c < 7; c++)
+    {
+        if (board[0, c] == '.')
+            return false;
+    }
+
+    return true;
+}
+
 
 char[,] board = new char[6,7];
 InitialiseBoard(board);
@@ -75,10 +86,18 @@ while (true)
     }
 
     if (CheckWin(board, currentPlayer))
-{
-    PrintBoard(board);
-    Console.WriteLine($"Player {currentPlayer} wins!");
-    Console.WriteLine("Game Over.");
-    break;
-}
+    {
+        PrintBoard(board);
+        Console.WriteLine($"Player {currentPlayer} wins!");
+        Console.WriteLine("Game Over.");
+        break;
+    }
+    else if (CheckDraw(board))
+    {
+        PrintBoard(board);
+        Console.WriteLine("Draw");
+        Console.WriteLine("Game Over.");
+        break;
+
+    }
 }
