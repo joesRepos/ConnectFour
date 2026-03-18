@@ -1,4 +1,5 @@
-﻿static void InitialiseBoard(char[,] board)
+﻿// Set up the board.
+static void InitialiseBoard(char[,] board)
 {
     for (int r = 0; r < 6; r++)
     {
@@ -9,6 +10,8 @@
     }
 }
 
+
+// Display the board.
 static void PrintBoard(char[,] board)
 {
     for (int r = 0; r < 6; r++)
@@ -24,6 +27,7 @@ static void PrintBoard(char[,] board)
     Console.WriteLine("1 2 3 4 5 6 7");
 }
 
+// Make a move by dropping a piece in a column.
 static bool DropPiece(char[,] board, int column, char player)
 {
     for (int r = 5; r >= 0; r--)
@@ -38,6 +42,8 @@ static bool DropPiece(char[,] board, int column, char player)
     return false;
 }
 
+
+// Boolean check for a win state.
 static bool CheckWin(char[,] board, char player)
 {
     for (int row = 0; row < 6; row++)
@@ -52,6 +58,7 @@ static bool CheckWin(char[,] board, char player)
     return false;
 }
 
+// Boolean check for a draw state.
 static bool CheckDraw(char[,] board)
 {
     for (int c = 0; c < 7; c++)
@@ -69,6 +76,8 @@ InitialiseBoard(board);
 
 char currentPlayer = 'X';
 
+
+// Game loop.
 while (true)
 {
     PrintBoard(board);
