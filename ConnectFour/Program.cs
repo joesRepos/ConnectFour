@@ -83,7 +83,16 @@ while (true)
     PrintBoard(board);
 
     Console.Write($"Player {currentPlayer}, choose column (1-7): ");
-    int column = int.Parse(Console.ReadLine()) - 1;
+    int column = int.Parse(Console.ReadLine());
+    
+
+    if (column < 1 || column > 7)
+    {
+        Console.WriteLine("Invalid input. Try again.");
+        continue;
+    }
+
+    column -= 1;
 
     if (DropPiece(board, column, currentPlayer))
     {
