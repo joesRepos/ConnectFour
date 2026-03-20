@@ -96,6 +96,20 @@ while (true)
 
     if (DropPiece(board, column, currentPlayer))
     {
+        if (CheckWin(board, currentPlayer))
+        {
+            PrintBoard(board);
+            Console.WriteLine($"Player {currentPlayer} wins!");
+            Console.WriteLine("Game Over.");
+            break;
+        }
+        else if (CheckDraw(board))
+        {
+            PrintBoard(board);
+            Console.WriteLine("Draw");
+            Console.WriteLine("Game Over.");
+            break;
+        }
         currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
     }
     else
@@ -103,19 +117,5 @@ while (true)
         Console.WriteLine("Column full.");
     }
 
-    if (CheckWin(board, currentPlayer))
-    {
-        PrintBoard(board);
-        Console.WriteLine($"Player {currentPlayer} wins!");
-        Console.WriteLine("Game Over.");
-        break;
-    }
-    else if (CheckDraw(board))
-    {
-        PrintBoard(board);
-        Console.WriteLine("Draw");
-        Console.WriteLine("Game Over.");
-        break;
-
-    }
+    
 }
