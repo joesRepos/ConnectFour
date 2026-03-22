@@ -46,11 +46,52 @@ static bool DropPiece(char[,] board, int column, char player)
 // Boolean check for a win state.
 static bool CheckWin(char[,] board, char player)
 {
+    // Horizontal check.
     for (int row = 0; row < 6; row++)
     {
         for (int col = 0; col < 4; col++)
         {
-            if (board[row, col] == player && board[row, col + 1] == player && board[row, col + 2] == player && board[row, col + 3] == player)
+            if (board[row, col] == player &&
+                board[row, col + 1] == player &&
+                board[row, col + 2] == player &&
+                board[row, col + 3] == player)
+                return true;
+        }
+    }
+
+    // Vertical check.
+    for (int col = 0; col < 7; col++)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            if (board[row, col] == player &&
+                board[row + 1, col] == player &&
+                board[row + 2, col] == player &&
+                board[row + 3, col] == player)
+                return true;
+        }
+    }
+
+    // Diagonal check.
+    for (int row = 3; row < 6; row++)
+    {
+        for (int col = 0; col < 4; col++)
+        {
+            if (board[row, col] == player &&
+                board[row - 1, col + 1] == player &&
+                board[row - 2, col + 2] == player &&
+                board[row - 3, col + 3] == player)
+                return true;
+        }
+    }
+    for (int row = 0; row < 3; row++)
+    {
+        for (int col = 0; col < 4; col++)
+        {
+            if (board[row, col] == player &&
+                board[row + 1, col + 1] == player &&
+                board[row + 2, col + 2] == player &&
+                board[row + 3, col + 3] == player)
                 return true;
         }
     }
