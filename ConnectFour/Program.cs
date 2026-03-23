@@ -124,7 +124,11 @@ while (true)
     PrintBoard(board);
 
     Console.Write($"Player {currentPlayer}, choose column (1-7): ");
-    int column = int.Parse(Console.ReadLine());
+    if (!int.TryParse(Console.ReadLine(), out int column))
+{
+    Console.WriteLine("Invalid input. Please enter an integer.");
+    continue;
+    }
     
 
     if (column < 1 || column > 7)
