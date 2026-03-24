@@ -42,6 +42,12 @@ static bool DropPiece(char[,] board, int column, char player)
     return false;
 }
 
+// Cehcks if a column entered is full.
+static bool IsColumnFull(char[,] board, int column)
+{
+    return board[0, column] != '.';
+}
+
 
 // Boolean check for a win state.
 static bool CheckWin(char[,] board, char player)
@@ -130,10 +136,14 @@ while (true)
     continue;
     }
     
-
+    if (IsColumnFull(board, column))
+    {
+        Console.WriteLine("That column is full. Try another one.");
+        continue;
+    }
     if (column < 1 || column > 7)
     {
-        Console.WriteLine("Invalid input. Try again.");
+        Console.WriteLine("Invalid input, not a column. Try again.");
         continue;
     }
 
