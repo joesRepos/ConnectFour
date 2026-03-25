@@ -126,7 +126,8 @@ char currentPlayer = 'X';
 
 // Game loop.
 while (true)
-{
+{   
+    Console.Clear();
     PrintBoard(board);
 
     Console.Write($"Player {currentPlayer}, choose column (1-7): ");
