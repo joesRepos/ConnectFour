@@ -111,22 +111,25 @@ static bool CheckDraw(char[,] board)
     return true;
 }
 
-
+// Initialising game state.
 char[,] board = new char[6,7];
 InitialiseBoard(board);
-
 char currentPlayer = 'X';
 
 
 // Game loop.
 while (true)
 {   
+    // Display the new board each game round.
     Console.Clear();
     PrintBoard(board);
 
     Console.Write($"Player {currentPlayer}, choose column (1-7): ");
+    
+
+    // Player input.
     if (!int.TryParse(Console.ReadLine(), out int column))
-{
+    {
     Console.WriteLine("Invalid input. Please enter an integer.");
     continue;
     }
@@ -138,8 +141,10 @@ while (true)
 
     column -= 1;
 
+    // Drop a piece if the column isn't full.
     if (DropPiece(board, column, currentPlayer))
     {
+        // Checks for final game states (win or draw).
         if (CheckWin(board, currentPlayer))
         {
             PrintBoard(board);
@@ -154,6 +159,7 @@ while (true)
             Console.WriteLine("Game Over.");
             break;
         }
+        // Switch the current player.
         currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
     }
     else
